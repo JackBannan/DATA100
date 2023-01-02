@@ -1,0 +1,65 @@
+---
+title: 'Testing Project'
+output:
+  html_document:
+  df_print: paged
+html_notebook: default
+pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library("readxl")
+```
+
+Importing datasets:
+```{r}
+# social_capital_county <- read_csv("social_capital_county.csv")
+#world_happiness_report <- read_csv("WorldHappinessReport2022-Score.csv")
+# stats_by_state <- read_csv("ComprehensiveStatsByState-PopPercent-20000101_20220815.csv")
+world_regions <- read_csv("WorldRegions.csv")
+#climate_change_survey <- read_excel("climate_change_opinion_survey_2022_aggregated.xlsx")
+# primary_energy <- read_csv("INT-Export-PrimaryEnergy-09-09-2022_23-12-37.csv", skip = 1)
+natural_gas <- read_csv("INT-Export-NaturalGas-09-09-2022_23-11-09.csv", skip = 1)
+# covid <- read_csv("COVID-2022-11-01.csv")
+#emissions <- read_csv("INT-Export-Emissions-09-09-2022_23-18-25.csv", skip = 1)
+
+# social_capital_county
+#world_happiness_report
+# stats_by_state
+world_regions
+#climate_change_survey
+# primary_energy
+natural_gas
+# covid
+#emissions
+```
+
+```{r}
+options(scipen=10)
+
+regions <- natural_gas %>%
+  filter(is.na(API)) %>%
+  filter(...2 != "Production") %>%
+  filter(...2 != "Consumption") %>%
+  filter(...2 != "Imports") %>%
+  filter(...2 != "Exports") %>%
+  filter(...2 != "Reserves") %>%
+  rename(c("Country" = "...2"))
+regions
+
+gas <- natural_gas %>%
+  filter(!is.na(API)) %>%
+  rename(c("Natural gas type" = "...2"))
+gas
+```
+```{r}
+world_regions[c('Country','Regions','Global')] <- str_split_fixed(world_regions$`Country	Region	Global South`, ' \t',3)
+world_regions  %>%
+  select(!`Country	Region	Global South`)
+```
+
