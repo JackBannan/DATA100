@@ -1,1 +1,1 @@
-# DATA100
+# DATA100 here is a rmd file that i used to clean up two datasets that were later used in a group project to analyse climate change. Along with the rmd file is the two csvs that you'll need to properly see my work.
