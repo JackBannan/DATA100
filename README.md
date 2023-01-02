@@ -1,1 +1,1 @@
-here is a rmd file that i used to clean up two datasets that were later used in a group project to analyse climate change. Along with the rmd file is the two csvs that you'll need to properly see my work.
+here is a rmd file called proj_data that i used to clean up two datasets that were later used in a group project to analyse climate change. Along with the rmd file is the two csvs that you'll need to properly see my work.
